@@ -1,0 +1,26 @@
+.Summary {
+    height: 250px;
+    width: 700px;
+    background-color: #312f2f;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: -180px;
+    margin: 0 auto;
+  }
+
+.Summary p{
+    color: white;
+    text-align: center;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.Summary h2{
+    color: white;
+    text-align: center;
+}

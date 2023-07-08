@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react";
 export const StoreContext = createContext();
 
 function StoreProvider(props) {
-  const [orderAmount, setorderAmount] = useState(0);
+  const [orderAmount, setorderAmount] = useState([]);
 
   //   const addToCart = (item) => {
   //     setCartItems([...cartItems, item]);

@@ -3,26 +3,33 @@ import React, { useState, createContext } from "react";
 export const StoreContext = createContext();
 
 function StoreProvider(props) {
-  const [orderAmount, setorderAmount] = useState([]);
+  const [CartItems, setCartItems] = useState([]);
 
-  //   const addToCart = (item) => {
-  //     setCartItems([...cartItems, item]);
-  //   };
+  const addToCart = (dish) => {
+    const dishIndex = CartItems.findIndex((item) => item.id === dish.id);
 
-  //   const removeFromCart = (itemId) => {
-  //     setCartItems(cartItems.filter(item => item.id !== itemId));
-  //   };
+    if (dishIndex !== -1) {
+      const updatedCart = [...CartItems];
+      updatedCart[dishIndex].quantity += 1;
+      setCartItems(updatedCart);
+    } else {
+      const updatedDish = { ...dish, quantity: 1 };
+      setCartItems([...CartItems, updatedDish]);
+    }
+  };
 
-  //   const clearCart = () => {
-  //     setCartItems([]);
-  //   };
+  const removeFromCart = (itemId) => {
+    setCartItems(CartItems.filter((item) => item.id !== itemId));
+  };
 
-  const orderIncriment = (id) => {
-    setorderAmount((prevValue) => prevValue + 1);
+  const clearCart = () => {
+    setCartItems([]);
   };
 
   return (
-    <StoreContext.Provider value={{ orderAmount, orderIncriment }}>
+    <StoreContext.Provider
+      value={{ CartItems, addToCart, removeFromCart, clearCart }}
+    >
       {props.children}
     </StoreContext.Provider>
   );

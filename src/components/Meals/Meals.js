@@ -7,13 +7,15 @@ const dish = [
         id : 1,
         name :'Shruti',
         description :'bff',
-        price : 20
+        price : 20,
+        quantity:0
     },
     {
         id : 2,
         name :'Abhishek',
         description :'bff',
-        price : 2000
+        price : 2000,
+        quantity:0
     },
 ]
 
